@@ -5,6 +5,8 @@ const btnPause = document.querySelector("#btnPause");
 const btnReturn = document.querySelector("#btnReturn");
 const switchBtn = document.getElementById("switch-btn");
 const btnScreenshot = document.querySelector("#btnScreenshot");
+const saveBtn = document.querySelector("#save-btn");
+const shareBtn = document.querySelector("#share-btn");
 const fullscreenBtn = document.getElementById("fullscreen-btn");
 const fullscreenContainer = document.getElementById("fullscreen-container");
 const fullscreenVideo = document.getElementById("fullscreen-video");
@@ -14,21 +16,13 @@ const fullscreenBtnScreenshot = document.getElementById("fullscreen-btnScreensho
 const fullscreenBtnReturn = document.getElementById("fullscreen-btnReturn");
 const fullscreenBtnPlay = document.getElementById("fullscreen-btnPlay");
 const fullscreenPause = document.getElementById("fullscreen-btnPause");
+const fullscreenSaveBtn = document.getElementById("fullscreen-save-btn");
+const fullscreenShareBtn = document.getElementById("fullscreen-share-btn");
 
 const constraints = {
   video: {
     width: 450,
-    // {
-    //   min: 450,
-    //   ideal: 1920,
-    //   max: 2560,
-    // },
     height: 600,
-    // {
-    //   min: 600,
-    //   ideal: 1080,
-    //   max: 1440,
-    // },
   },
 };
 //
@@ -40,8 +34,6 @@ canvas.style.left = "0";
 canvas.style.right = "0";
 canvas.style.bottom = "0";
 canvas.style.margin = "auto";
-canvas.style.width = "75%";
-canvas.style.height = "450px";
 
 canvas2.style.position = "absolute";
 canvas2.style.bottom = "50px";
@@ -51,10 +43,13 @@ canvas2.style.height = "100%";
 
 document.body.appendChild(canvas);
 document.body.appendChild(canvas2);
+canvas.classList.add("canvas");
 
 video.style.display = "none";
 canvas2.style.display = "none";
 btnReturn.style.display = "none";
+saveBtn.style.display = "none";
+shareBtn.style.display = "none";
 fullscreenBtnReturn.style.display = "none";
 fullscreenVideo.style.display = "none";
 
@@ -73,20 +68,22 @@ navigator.mediaDevices
 const ctx = canvas.getContext("2d");
 // Загружаем изображение
 const maskImage = new Image();
-maskImage.src = "images/safety.png";
+maskImage.src = "images/clipart.png";
+
 maskImage.onload = () => {
-  // Отображаем видеопоток на canvas с добавлением изображения
+
   setInterval(() => {
     ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
     ctx.drawImage(
       maskImage,
       canvas.width / 2 - 50,
       canvas.height / 2 - 50,
-      100,
-      100
+      100, 
+      100, 
     ); // размер и положение изображения на canvas
   }, 10);
 };
+
 
 //play
 btnPlay.addEventListener("click", function () {
@@ -103,6 +100,13 @@ btnPause.addEventListener("click", function () {
 });
 
 btnReturn.addEventListener("click", function () {
+  btnPlay.style.display = "block";
+  btnPause.style.display = "block";
+  switchBtn.style.display = "block";
+  fullscreenBtn.style.display = "block";
+  btnScreenshot.style.display = "block";
+  saveBtn.style.display = "none";
+  shareBtn.style.display = "none";
   video.play();
   btnReturn.style.display = "none";
 });
@@ -128,6 +132,13 @@ btnScreenshot.addEventListener("click", () => {
   // Останавливаем видеопоток и скрываем его
   video.pause();
   video.style.display = "none";
+  btnPlay.style.display = "none";
+  btnPause.style.display = "none";
+  switchBtn.style.display = "none";
+  fullscreenBtn.style.display = "none";
+  btnScreenshot.style.display = "none";
+  saveBtn.style.display = "block";
+  shareBtn.style.display = "block";
   btnReturn.style.display = "block";
   // Останавливаем отображение видеопотока на canvas
   clearInterval("1000");
@@ -159,9 +170,17 @@ fullscreenBtn.addEventListener("click", () => {
   btnPlay.style.display = "none";
   btnPause.style.display = "none";
   switchBtn.style.display = "none";
+  saveBtn.style.display = "none";
+  shareBtn.style.display = "none";
   fullscreenBtn.style.display = "none";
   btnScreenshot.style.display = "none";
   btnReturn.style.display = "none";
+  fullscreenBtnPlay.disabled = false;
+  fullscreenPause.disabled = false;
+  fullscreenSwitchBtn.disabled = false;
+  fullscreenBtnScreenshot.disabled = false;
+  fullscreenSaveBtn.disabled = false;
+  fullscreenShareBtn.disabled = false;
   video.pause();
   fullscreenVideo.srcObject = video.srcObject;
   fullscreenVideo.play();
@@ -201,6 +220,12 @@ fullscreenPause.addEventListener("click", function () {
 });
 
 fullscreenBtnReturn.addEventListener("click", function () {
+  fullscreenBtnPlay.disabled = false;
+  fullscreenPause.disabled = false;
+  fullscreenSwitchBtn.disabled = false;
+  fullscreenBtnScreenshot.disabled = false;
+  fullscreenSaveBtn.disabled = false;
+  fullscreenShareBtn.disabled = false;
   fullscreenVideo.play();
   fullscreenBtnReturn.style.display = "none";
 });
@@ -208,7 +233,7 @@ fullscreenBtnReturn.addEventListener("click", function () {
 const ctx2 = canvas2.getContext("2d");
 // Загружаем изображение
 const maskImage2 = new Image();
-maskImage2.src = "images/safety.png";
+maskImage2.src = "images/clipart.png";
 maskImage2.onload = () => {
   // Отображаем видеопоток на canvas с добавлением изображения
   setInterval(() => {
@@ -256,6 +281,12 @@ fullscreenBtnScreenshot.addEventListener("click", () => {
   // Останавливаем видеопоток и скрываем его
   fullscreenVideo.pause();
   fullscreenVideo.style.display = "none";
+  fullscreenBtnPlay.disabled = true;
+  fullscreenPause.disabled = true;
+  fullscreenSwitchBtn.disabled = true;
+  fullscreenBtnScreenshot.disabled = true;
+  fullscreenSaveBtn.disabled = true;
+  fullscreenShareBtn.disabled = true;
   fullscreenBtnReturn.style.display = "block";
   // Останавливаем отображение видеопотока на canvas
   clearInterval("1000");

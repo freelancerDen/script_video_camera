@@ -15,15 +15,12 @@
     ></script>
 
     <title>Custom Video Player</title>
- 
   </head>
   <body>
     <div id="video-container">
       <video id="video" autoplay muted playsinline></video>
       <button class="button button_return btn" id="btnReturn">Back</button>
-      <button id="fullscreen-btn" class="button">
-        Full Screen
-      </button>
+      <button id="fullscreen-btn" class="button">Full Screen</button>
       <div class="button_options">
         <button class="button is-hidden btn" id="btnPlay">
           <span class="icon is-small">
@@ -44,7 +41,16 @@
           <span class="icon">
             <i class="fas fa-sync-alt"></i>
           </span>
-          <!-- <span>Switch camera</span> -->
+        </button>
+        <button class="button btn" id="save-btn">
+          <span class="icon is-small">
+            <i class="fas fa-save"></i>
+          </span>
+        </button>
+        <button class="button btn" id="share-btn">	
+          <span class="icon is-small">
+            <i class="fas fa-share"></i>
+          </span>
         </button>
       </div>
     </div>
@@ -53,7 +59,7 @@
     <div id="fullscreen-container">
       <video id="fullscreen-video" autoplay muted playsinline></video>
       <div id="fullscreen-controls">
-        <button class="btn" id="fullscreen-btnReturn">Return</button>
+        <button class="btn" id="fullscreen-btnReturn">Back</button>
         <button class="button is-hidden btn" id="fullscreen-btnPlay">
           <span class="icon is-small">
             <i class="fas fa-play"></i>
@@ -73,10 +79,18 @@
           <span class="icon">
             <i class="fas fa-sync-alt"></i>
           </span>
-          <!-- <span>Switch camera</span> -->
         </button>
-
         <button id="fullscreen-exit-btn">Exit</button>
+        <button class="button btn" id="fullscreen-save-btn">
+          <span class="icon is-small">
+            <i class="fas fa-save"></i>
+          </span>
+        </button>
+        <button class="button btn" id="fullscreen-share-btn">	
+          <span class="icon is-small">
+            <i class="fas fa-share"></i>
+          </span>
+        </button>
       </div>
     </div>
 
