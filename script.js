@@ -19,12 +19,12 @@ const fullscreenPause = document.getElementById("fullscreen-btnPause");
 const fullscreenSaveBtn = document.getElementById("fullscreen-save-btn");
 const fullscreenShareBtn = document.getElementById("fullscreen-share-btn");
 
-const constraints = {
-  video: {
-    width: 450,
-    height: 600,
-  },
-};
+// const constraints = {
+//   video: {
+//     width: 450,
+//     height: 600,
+//   },
+// };
 //
 const canvas = document.createElement("canvas");
 const canvas2 = document.createElement("canvas");
@@ -57,7 +57,7 @@ fullscreenVideo.style.display = "none";
 const image = document.createElement("img");
 
 navigator.mediaDevices
-  .getUserMedia(constraints)
+  .getUserMedia({ video: { facingMode: { exact: currentCamera } } })
   .then((stream) => {
     video.srcObject = stream;
     video.play();
@@ -180,8 +180,8 @@ fullscreenBtn.addEventListener("click", () => {
   fullscreenPause.disabled = false;
   fullscreenSwitchBtn.disabled = false;
   fullscreenBtnScreenshot.disabled = false;
-  fullscreenSaveBtn.disabled = false;
-  fullscreenShareBtn.disabled = false;
+  fullscreenSaveBtn.disabled = true;
+  fullscreenShareBtn.disabled = true;
   video.pause();
   fullscreenVideo.srcObject = video.srcObject;
   fullscreenVideo.play();
@@ -205,7 +205,7 @@ fullscreenSwitchBtn.addEventListener("click", () => {
       console.error(error);
     });
 });
-
+// "https://e7.pngegg.com/pngimages/289/91/png-clipart-dragon-free-content-funny-dragon-pics-dragon-grass-thumbnail.png";
 //play
 fullscreenBtnPlay.addEventListener("click", function () {
   fullscreenVideo.play();
@@ -225,8 +225,8 @@ fullscreenBtnReturn.addEventListener("click", function () {
   fullscreenPause.disabled = false;
   fullscreenSwitchBtn.disabled = false;
   fullscreenBtnScreenshot.disabled = false;
-  fullscreenSaveBtn.disabled = false;
-  fullscreenShareBtn.disabled = false;
+  fullscreenSaveBtn.disabled = true;
+  fullscreenShareBtn.disabled = true;
   fullscreenVideo.play();
   fullscreenBtnReturn.style.display = "none";
 });
@@ -250,6 +250,15 @@ maskImage2.onload = () => {
 };
 
 fullscreenExitBtn.addEventListener("click", () => {
+  navigator.mediaDevices
+    .getUserMedia({ video: { facingMode: { exact: currentCamera } } })
+    .then((stream) => {
+      video.srcObject = stream;
+      video.play();
+    })
+    .catch((error) => {
+      console.error(error);
+    });
   canvas.style.display = "block";
   canvas2.style.display = "none";
   btnPlay.style.display = "block";
@@ -259,7 +268,6 @@ fullscreenExitBtn.addEventListener("click", () => {
   btnScreenshot.style.display = "block";
   fullscreenVideo.pause();
   fullscreenContainer.style.display = "none";
-  video.play();
   document.exitFullscreen();
 });
 
@@ -286,8 +294,8 @@ fullscreenBtnScreenshot.addEventListener("click", () => {
   fullscreenPause.disabled = true;
   fullscreenSwitchBtn.disabled = true;
   fullscreenBtnScreenshot.disabled = true;
-  fullscreenSaveBtn.disabled = true;
-  fullscreenShareBtn.disabled = true;
+  fullscreenSaveBtn.disabled = false;
+  fullscreenShareBtn.disabled = false;
   fullscreenBtnReturn.style.display = "block";
   // Останавливаем отображение видеопотока на canvas
   clearInterval("1000");
