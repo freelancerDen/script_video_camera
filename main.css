@@ -98,6 +98,10 @@
   object-fit: cover;
 }
 
+.canvas2 {
+  object-fit: cover;
+}
+
 @media (max-width: 1200px) {
   #video-container {
     width: 75%;
@@ -138,7 +142,7 @@
 
 @media (max-width: 768px) {
   #fullscreen-controls {
-    gap: 10px;
+    gap: 8px;
   }
   #fullscreen-controls button {
     font-size: 18px;

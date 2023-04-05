@@ -44,6 +44,7 @@ canvas2.style.height = "100%";
 document.body.appendChild(canvas);
 document.body.appendChild(canvas2);
 canvas.classList.add("canvas");
+canvas2.classList.add("canvas2");
 
 video.style.display = "none";
 canvas2.style.display = "none";
