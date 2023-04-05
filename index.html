@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="main.css" />
 
     <link
       rel="stylesheet"
@@ -14,105 +15,13 @@
     ></script>
 
     <title>Custom Video Player</title>
-    <style>
-      #video-container {
-        position: relative;
-        width: 350px;
-        height: 450px;
-      }
-
-      .button_options {
-        position: absolute;
-        bottom: 162px;
-        left: 12px;
-        z-index: 1;
-        display: flex;
-        gap: 5px;
-      }
-
-      .btn {
-        border: 1px solid rgb(0, 175, 20);
-        background: transparent;
-        color: white;
-      }
-
-      .btn:hover {
-        cursor: pointer;
-        background-color: aquamarine;
-        color: rgb(0, 175, 20);
-      }
-
-      .button_return {
-        position: absolute;
-        left: 12px;
-        top: 30px;
-        z-index: 1;
-      }
-
-      .button_fullScreen {
-        position: absolute;
-        left: 250px;
-        top: 30px;
-        z-index: 1;
-      }
-
-      #video-container video {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-      }
-
-      #fullscreen-container {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: black;
-        display: none;
-      }
-
-      #fullscreen-container video {
-        width: 100%;
-        height: 100%;
-        object-fit: contain;
-      }
-
-      #fullscreen-controls {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 50px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 30px;
-        padding: 0 20px;
-        box-sizing: border-box;
-        background-color: rgba(255, 255, 255, 0.5);
-      }
-
-      #fullscreen-controls button {
-        font-size: 20px;
-        font-weight: bold;
-        background-color: transparent;
-        border: none;
-        cursor: pointer;
-        color: white;
-      }
-
-      #fullscreen-controls button:hover {
-        scale: 1.1
-      }
-
-    </style>
+ 
   </head>
   <body>
     <div id="video-container">
       <video id="video" autoplay muted playsinline></video>
-      <button class="button_return btn" id="btnReturn">Return</button>
-      <button id="fullscreen-btn" class="button_fullScreen btn">
+      <button class="button button_return btn" id="btnReturn">Back</button>
+      <button id="fullscreen-btn" class="button">
         Full Screen
       </button>
       <div class="button_options">
@@ -135,7 +44,7 @@
           <span class="icon">
             <i class="fas fa-sync-alt"></i>
           </span>
-          <span>Switch camera</span>
+          <!-- <span>Switch camera</span> -->
         </button>
       </div>
     </div>
@@ -164,11 +73,10 @@
           <span class="icon">
             <i class="fas fa-sync-alt"></i>
           </span>
-          <span>Switch camera</span>
+          <!-- <span>Switch camera</span> -->
         </button>
-   
-        <button id="fullscreen-exit-btn">Exit Full Screen</button>
 
+        <button id="fullscreen-exit-btn">Exit</button>
       </div>
     </div>
 

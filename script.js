@@ -37,11 +37,14 @@ const canvas2 = document.createElement("canvas");
 canvas.style.position = "absolute";
 canvas.style.top = "0";
 canvas.style.left = "0";
-canvas.style.width = "350px";
+canvas.style.right = "0";
+canvas.style.bottom = "0";
+canvas.style.margin = "auto";
+canvas.style.width = "75%";
 canvas.style.height = "450px";
 
 canvas2.style.position = "absolute";
-canvas2.style.top = "50px";
+canvas2.style.bottom = "50px";
 canvas2.style.left = "0";
 canvas2.style.width = "100%";
 canvas2.style.height = "100%";
