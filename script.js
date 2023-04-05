@@ -229,9 +229,9 @@ fullscreenExitBtn.addEventListener("click", () => {
   fullscreenBtn.style.display = "block";
   btnScreenshot.style.display = "block";
   fullscreenVideo.pause();
-  document.exitFullscreen();
   fullscreenContainer.style.display = "none";
   video.play();
+  document.exitFullscreen();
 });
 
 document.addEventListener("fullscreenchange", () => {
