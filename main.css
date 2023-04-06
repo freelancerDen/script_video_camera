@@ -95,7 +95,7 @@
 .canvas {
   width: 60%;
   height: 80%;
-  object-fit: cover;
+  /* object-fit: cover; */
 }
 
 .canvas2 {
