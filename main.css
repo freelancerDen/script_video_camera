@@ -95,11 +95,11 @@
 .canvas {
   width: 60%;
   height: 80%;
-  /* object-fit: cover; */
+  object-fit: contain;
 }
 
 .canvas2 {
-  object-fit: cover;
+  object-fit: contain;
 }
 
 @media (max-width: 1200px) {
