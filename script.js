@@ -56,8 +56,10 @@ fullscreenVideo.style.display = "none";
 
 const image = document.createElement("img");
 
+// .getUserMedia({ video: { facingMode: { exact: currentCamera } } })
+
 navigator.mediaDevices
-  .getUserMedia({ video: { facingMode: { exact: currentCamera } } })
+  .getUserMedia({ audio: false, video: { facingMode: { exact: currentCamera } } })
   .then((stream) => {
     video.srcObject = stream;
     video.play();
